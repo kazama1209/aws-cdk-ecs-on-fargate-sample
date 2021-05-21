@@ -1,14 +1,44 @@
-# Welcome to your CDK TypeScript project!
+# aws-cdk-ecs-on-fargate-sample
 
-This is a blank project for TypeScript development with CDK.
+AWS CDKでECS環境（Fargate）を構築するためのサンプル。
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+デプロイ用のアプリは以下を参照。
 
-## Useful commands
+https://github.com/kazama1209/rails6-sample-app
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+## セットアップ
+
+必要なパッケージをインストール。
+
+```
+$ npm install
+```
+
+環境変数をセット。
+
+```
+$ cp .env.sample .env
+
+DATABASE_NAME=
+DATABASE_PASSWORD=
+DATABASE_USERNAME=
+RAILS_MASTER_KEY=
+```
+
+コンパイル。
+
+```
+$ npm run build
+```
+
+CloudFormationのテンプレートを作成。
+
+```
+$ cdk synth --profile <AWS CLIプロファイル名>
+```
+
+デプロイ。
+
+```
+$ cdk deploy --profile <AWS CLIプロファイル名>
+```
